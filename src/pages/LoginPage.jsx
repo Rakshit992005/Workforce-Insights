@@ -21,7 +21,7 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.username === "test" && formData.password === "123456") {
-      navigate("/dashboard");
+      navigate("/listpage");
     } else {
       alert("Invalid username or password");
     }

@@ -1,12 +1,12 @@
 import LoginPage from './pages/LoginPage'
 import { Routes, Route } from "react-router-dom";
-import Dashboard from './pages/Dashboard';
+import ListPage from './pages/ListPage';
 
 const App = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginPage />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/listpage" element={<ListPage />} />
     </Routes>
   )
 }
