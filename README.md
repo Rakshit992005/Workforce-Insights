@@ -2,6 +2,10 @@
 
 Workforce Insights is a premium, data-driven dashboard designed for modern organizations to manage employee records, visualize compensation structures, and monitor workforce analytics in real-time.
 
+## Demo Video
+
+https://drive.google.com/drive/folders/11B3vKigS0PSz2rW9Nc-EIdcUG9-xI45a?usp=drive_link
+
 ## 🚀 Features
 
 - **Centralized State Management**: Powered by the React Context API to ensure data consistency across the entire application.
