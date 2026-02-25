@@ -1,8 +1,14 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const navigate = useNavigate();
+
+  const navLinkClass = ({ isActive }) =>
+    `transition-colors hover:text-primary pb-0.5 ${
+      isActive
+        ? "text-primary border-b-2 border-primary font-bold"
+        : "text-text-muted font-medium"
+    }`;
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border px-6 py-4 flex items-center justify-between">
@@ -30,19 +36,13 @@ const NavBar = () => {
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="hidden md:flex items-center gap-6 text-sm font-medium text-text-muted">
-          <a href="#" className="hover:text-primary transition-colors">
-            Overview
-          </a>
-          <a
-            href="/listpage"
-            className="hover:text-primary transition-colors text-primary border-b-2 border-primary pb-0.5"
-          >
+        <div className="hidden md:flex items-center gap-6 text-sm">
+          <NavLink to="/listpage" className={navLinkClass}>
             Employees
-          </a>
-          <a href="/analytics" className="hover:text-primary transition-colors">
+          </NavLink>
+          <NavLink to="/analytics" className={navLinkClass}>
             Analytics
-          </a>
+          </NavLink>
         </div>
 
         <div className="flex items-center gap-3 border-l border-border pl-6">
