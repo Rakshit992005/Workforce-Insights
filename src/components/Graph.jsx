@@ -16,7 +16,6 @@ const Graph = () => {
 
   const data = stats.chartData || [];
 
-  // Dynamic width based on data length to handle 57 employees cleanly
   const chartWidth = Math.max(800, data.length * 40);
 
   const CustomTooltip = ({ active, payload, label }) => {
@@ -109,7 +108,6 @@ const Graph = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       {data.length > 15 && (
         <div className="flex justify-center mt-2">
           <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest flex items-center gap-2 bg-slate-50 px-3 py-1 rounded-full border border-border">

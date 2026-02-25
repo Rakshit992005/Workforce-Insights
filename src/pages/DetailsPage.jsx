@@ -196,7 +196,6 @@ const DetailsPAge = () => {
             </div>
           </div>
 
-          {/* Details Grid Section */}
           <div className="p-8 md:p-12">
             <div className="flex items-center gap-4 mb-8">
               <h3 className="text-lg font-bold text-text-main whitespace-nowrap">

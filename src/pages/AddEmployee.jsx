@@ -29,7 +29,6 @@ const AddEmployee = () => {
     setIsSubmitting(true);
     setStatus({ type: "", message: "" });
 
-    // Format data for central context
     const newEmployee = [
       formData.name,
       formData.position,
@@ -60,7 +59,6 @@ const AddEmployee = () => {
       <NavBar />
 
       <div className="max-w-3xl mx-auto px-6 pt-8">
-        {/* Header Actions */}
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 transition-colors group cursor-pointer"

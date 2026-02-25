@@ -91,7 +91,6 @@ const AnalyticsPage = () => {
       <NavBar />
 
       <div className="max-w-7xl mx-auto px-6 pt-8">
-        {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="animate-slide-up">
             <button
@@ -182,7 +181,6 @@ const AnalyticsPage = () => {
           </div>
         </div>
 
-        {/* Stats Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {formattedStats.map((stat, i) => (
             <div
@@ -214,7 +212,6 @@ const AnalyticsPage = () => {
           ))}
         </div>
 
-        {/* Main Graph Card */}
         <div
           className="bg-white rounded-[2rem] shadow-premium border border-border overflow-hidden animate-slide-up"
           style={{ animationDelay: "0.5s" }}
@@ -267,7 +264,6 @@ const AnalyticsPage = () => {
             <Graph />
           </div>
 
-          {/* Graph Footer/Skeleton Details */}
           <div className="px-8 py-6 bg-slate-50/50 border-t border-border flex flex-wrap gap-8 items-center">
             <div className="flex items-center gap-3">
               <div className="w-10 h-3 bg-slate-200 rounded-full animate-pulse"></div>

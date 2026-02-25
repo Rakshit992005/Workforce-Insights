@@ -75,7 +75,6 @@ const ListPage = () => {
           className=" print-area bg-white rounded-2xl shadow-premium border border-border overflow-hidden animate-slide-up"
           style={{ animationDelay: "0.2s" }}
         >
-          {/* Table Header */}
           <div className=" grid grid-cols-6 gap-4 px-6 py-4 bg-slate-50 border-b border-border">
             <span className="text-xs font-bold text-text-muted uppercase tracking-wider">
               Employee Name

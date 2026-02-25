@@ -29,7 +29,6 @@ export const WorkforceProvider = ({ children }) => {
       setData(response.data.TABLE_DATA.data);
       setError(null);
     } catch (err) {
-      console.error("Error fetching workforce data:", err);
       setError("Failed to fetch workforce data. Please try again later.");
     } finally {
       setLoading(false);
@@ -40,7 +39,6 @@ export const WorkforceProvider = ({ children }) => {
     fetchData();
   }, []);
 
-  // Derived stats for Analytics
   const stats = {
     totalEmployees: data.length,
     averageSalary:

@@ -32,7 +32,6 @@ const ImageCapturePage = () => {
         setIsStreaming(true);
       }
     } catch (err) {
-      console.error("Error accessing camera:", err);
       setError(
         "Could not access camera. Please ensure you have given permission.",
       );
@@ -74,7 +73,6 @@ const ImageCapturePage = () => {
       <NavBar />
 
       <div className="max-w-4xl mx-auto px-6 pt-8">
-        {/* Back Link */}
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 transition-colors group cursor-pointer"
@@ -153,7 +151,6 @@ const ImageCapturePage = () => {
                 />
               )}
 
-              {/* Visual Feedback for Capture */}
               <canvas ref={canvasRef} className="hidden" />
             </div>
 

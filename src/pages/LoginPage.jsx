@@ -27,7 +27,6 @@ const LoginPage = () => {
     }
   };
 
-  // Icons
   const Icons = {
     Pulse: () => (
       <svg

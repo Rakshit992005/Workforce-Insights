@@ -6,7 +6,6 @@ const ListItems = (props) => {
 
   const detailsHandler = (e) => {
     e.preventDefault();
-    console.log(item);
     navigate("/details", { state: { item } });
   };
 
