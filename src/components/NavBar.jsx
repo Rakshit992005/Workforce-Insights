@@ -35,12 +35,12 @@ const NavBar = () => {
             Overview
           </a>
           <a
-            href="#"
+            href="/listpage"
             className="hover:text-primary transition-colors text-primary border-b-2 border-primary pb-0.5"
           >
             Employees
           </a>
-          <a href="#" className="hover:text-primary transition-colors">
+          <a href="/analytics" className="hover:text-primary transition-colors">
             Analytics
           </a>
         </div>

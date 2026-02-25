@@ -1,16 +1,23 @@
-import LoginPage from './pages/LoginPage'
+import LoginPage from "./pages/LoginPage";
 import { Routes, Route } from "react-router-dom";
-import ListPage from './pages/ListPage';
-import DetailsPAge from './pages/DetailsPAge';
+import ListPage from "./pages/ListPage";
+import DetailsPAge from "./pages/DetailsPAge";
+import ImageCapturePage from "./pages/ImageCapturePage";
+import AnalyticsPage from "./pages/AnalyticsPage";
+import { WorkforceProvider } from "./context/WorkforceContext";
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/listpage" element={<ListPage />} />
-      <Route path="/details" element={<DetailsPAge />} />
-    </Routes>
-  )
-}
+    <WorkforceProvider>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/listpage" element={<ListPage />} />
+        <Route path="/details" element={<DetailsPAge />} />
+        <Route path="/capture" element={<ImageCapturePage />} />
+        <Route path="/analytics" element={<AnalyticsPage />} />
+      </Routes>
+    </WorkforceProvider>
+  );
+};
 
-export default App
+export default App;

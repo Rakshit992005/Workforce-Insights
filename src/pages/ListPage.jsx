@@ -1,37 +1,15 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import ListItems from "../components/ListItems";
+import { useWorkforce } from "../context/WorkforceContext";
 
 const ListPage = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const handleApiCall = () => {
-    setLoading(true);
-    axios
-      .post("https://backend.jotish.in/backend_dev/gettabledata.php", {
-        username: "test",
-        password: "123456",
-      })
-      .then((response) => {
-        setData(response.data.TABLE_DATA.data);
-        setLoading(false);
-        console.log(response.data.TABLE_DATA.data);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
-  };
+  const { data, loading, refreshData } = useWorkforce();
+  const navigate = useNavigate();
 
   const downloadHandler = () => {
     window.print();
   };
-
-  useEffect(() => {
-    handleApiCall();
-  }, []);
 
   return (
     <div className="min-h-screen bg-bg-page animate-fade-in">
@@ -52,6 +30,25 @@ const ListPage = () => {
             className="flex items-center gap-3 animate-slide-up"
             style={{ animationDelay: "0.1s" }}
           >
+            <button
+              onClick={refreshData}
+              className="bg-white p-2.5 rounded-xl cursor-pointer border border-border shadow-premium hover:bg-slate-50 transition-colors"
+              title="Refresh Data"
+            >
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M23 4v6h-6" />
+                <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+              </svg>
+            </button>
             <button
               onClick={downloadHandler}
               className="bg-white p-2.5 rounded-xl cursor-pointer border border-border shadow-premium hover:bg-slate-50 transition-colors"

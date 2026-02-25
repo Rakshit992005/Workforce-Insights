@@ -9,6 +9,10 @@
   animation: var(--animate-fade-in);
 }
 
+.animate-image-pop {
+  animation: var(--animate-image-pop);
+}
+
 /* Custom scrollbar */
 @layer base {
   ::-webkit-scrollbar {

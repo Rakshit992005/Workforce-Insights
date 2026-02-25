@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../components/NavBar";
 
@@ -16,9 +16,15 @@ const DetailsPAge = () => {
     ],
   };
 
+  const [profileImage, setProfileImage] = useState(
+    location.state?.capturedImage ||
+      "https://ui-avatars.com/api/?name=" +
+        item[0] +
+        "&background=random&size=200",
+  );
+
   const handleCapture = () => {
-    console.log("Capture logic to be implemented by user");
-    // Logic for capture will be written by the user
+    navigate("/capture", { state: { item } });
   };
 
   const personalDetails = [
@@ -93,7 +99,6 @@ const DetailsPAge = () => {
       <NavBar />
 
       <div className="max-w-5xl mx-auto px-6 pt-8">
-        {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
           className="flex items-center gap-2 text-text-muted hover:text-primary mb-8 transition-colors group cursor-pointer"
@@ -115,28 +120,16 @@ const DetailsPAge = () => {
           <span className="font-medium">Back to list</span>
         </button>
 
-        {/* Main Content Card */}
         <div className="bg-white rounded-3xl shadow-premium border border-border overflow-hidden animate-slide-up">
-          {/* Header Section */}
           <div className="p-8 md:p-12 bg-gradient-to-br from-slate-50 to-white border-b border-border">
             <div className="flex flex-col md:flex-row items-center gap-8">
-              {/* Profile Picture Placeholder */}
               <div className="relative group">
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-slate-100 border-4 border-white shadow-lg overflow-hidden flex items-center justify-center transition-transform group-hover:scale-[1.02]">
-                  <svg
-                    width="64"
-                    height="64"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="text-slate-300"
-                  >
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                    <circle cx="12" cy="7" r="4" />
-                  </svg>
+                  <img
+                    src={profileImage}
+                    alt={item[0]}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-full shadow-lg border-2 border-white">
                   <svg
