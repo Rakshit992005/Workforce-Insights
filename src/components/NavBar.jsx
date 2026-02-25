@@ -43,6 +43,9 @@ const NavBar = () => {
           <NavLink to="/analytics" className={navLinkClass}>
             Analytics
           </NavLink>
+          <NavLink to="/add-employee" className={navLinkClass}>
+            Add Employee
+          </NavLink>
         </div>
 
         <div className="flex items-center gap-3 border-l border-border pl-6">

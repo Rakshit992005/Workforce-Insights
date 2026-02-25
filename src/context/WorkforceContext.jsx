@@ -81,12 +81,17 @@ export const WorkforceProvider = ({ children }) => {
       })),
   };
 
+  const addEmployee = (newEmployee) => {
+    setData((prev) => [newEmployee, ...prev]);
+  };
+
   const value = {
     data,
     loading,
     error,
     stats,
     refreshData: fetchData,
+    addEmployee,
   };
 
   return (
