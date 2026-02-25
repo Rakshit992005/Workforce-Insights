@@ -57,13 +57,28 @@ export const WorkforceProvider = ({ children }) => {
             return acc + salary / 12;
           }, 0)
         : 0,
-    departmentData: data.reduce((acc, curr) => {
-      const dept = curr[1]; // Using Position as a proxy for Department for now
-      if (!acc[dept]) acc[dept] = { count: 0, totalSalary: 0 };
-      acc[dept].count += 1;
-      acc[dept].totalSalary += parseFloat(curr[5].replace(/[$,]/g, ""));
-      return acc;
-    }, {}),
+    departmentData: Object.entries(
+      data.reduce((acc, curr) => {
+        const dept = curr[1];
+        if (!acc[dept]) acc[dept] = { name: dept, totalSalary: 0, count: 0 };
+        acc[dept].count += 1;
+        acc[dept].totalSalary += parseFloat(curr[5].replace(/[$,]/g, ""));
+        return acc;
+      }, {}),
+    ).map(([_, value]) => ({
+      ...value,
+      avgSalary: value.totalSalary / value.count,
+    })),
+    chartData: [...data]
+      .sort(
+        (a, b) =>
+          parseFloat(b[5].replace(/[$,]/g, "")) -
+          parseFloat(a[5].replace(/[$,]/g, "")),
+      )
+      .map((item) => ({
+        name: item[0],
+        salary: parseFloat(item[5].replace(/[$,]/g, "")),
+      })),
   };
 
   const value = {
