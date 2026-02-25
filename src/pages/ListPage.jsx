@@ -17,6 +17,7 @@ const ListPage = () => {
       .then((response) => {
         setData(response.data.TABLE_DATA.data);
         setLoading(false);
+        console.log(response.data.TABLE_DATA.data);
       })
       .catch((error) => {
         console.error(error);
@@ -25,9 +26,8 @@ const ListPage = () => {
   };
 
   const downloadHandler = () => {
-      window.print();
-  }
- 
+    window.print();
+  };
 
   useEffect(() => {
     handleApiCall();
@@ -52,7 +52,10 @@ const ListPage = () => {
             className="flex items-center gap-3 animate-slide-up"
             style={{ animationDelay: "0.1s" }}
           >
-            <button onClick={downloadHandler} className="bg-white p-2.5 rounded-xl cursor-pointer border border-border shadow-premium hover:bg-slate-50 transition-colors">
+            <button
+              onClick={downloadHandler}
+              className="bg-white p-2.5 rounded-xl cursor-pointer border border-border shadow-premium hover:bg-slate-50 transition-colors"
+            >
               <svg
                 width="20"
                 height="20"
@@ -76,7 +79,10 @@ const ListPage = () => {
           style={{ animationDelay: "0.2s" }}
         >
           {/* Table Header */}
-          <div className=" grid grid-cols-5 gap-4 px-6 py-4 bg-slate-50 border-b border-border">
+          <div className=" grid grid-cols-6 gap-4 px-6 py-4 bg-slate-50 border-b border-border">
+            <span className="text-xs font-bold text-text-muted uppercase tracking-wider">
+              Employee Name
+            </span>
             <span className="text-xs font-bold text-text-muted uppercase tracking-wider">
               Position
             </span>
@@ -103,7 +109,9 @@ const ListPage = () => {
                 </p>
               </div>
             ) : (
-              data.map((item, idx) => <ListItems className="cursor-pointer" key={idx} item={item} />)
+              data.map((item, idx) => (
+                <ListItems className="cursor-pointer" key={idx} item={item} />
+              ))
             )}
           </div>
 
